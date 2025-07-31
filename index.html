@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EFCH - Create more possible!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(-45deg, #0c2461, #1e3799, #1abc9c, #3498db);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .logo-section {
+            margin: 30px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 1s ease;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .logo img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin: 10px 0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to right, #ffffff, #e6f7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+        
+        .bilibili-btn {
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 20px rgba(255, 20, 147, 0.4);
+            margin: 20px 0 40px;
+        }
+        
+        .bilibili-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 20, 147, 0.6);
+        }
+        
+        .bilibili-btn:active {
+            transform: translateY(1px);
+        }
+        
+        .software-section {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            border-radius: 3px;
+        }
+        
+        .software-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: left;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .software-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+        
+        .software-name {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .software-status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-left: 10px;
+        }
+        
+        .stopped {
+            background: rgba(128, 128, 128, 0.3);
+            color: #ccc;
+        }
+        
+        .coming-soon {
+            background: rgba(255, 215, 0, 0.2);
+            color: #ffd700;
+        }
+        
+        .software-btn {
+            padding: 10px 25px;
+            border-radius: 8px;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: 10px;
+        }
+        
+        .disabled {
+            background: #555;
+            color: #aaa;
+            cursor: not-allowed;
+        }
+        
+        .enabled {
+            background: linear-gradient(135deg, #00b4db, #0083b0);
+            color: white;
+        }
+        
+        .enabled:hover {
+            background: linear-gradient(135deg, #0083b0, #00b4db);
+            box-shadow: 0 3px 10px rgba(0, 131, 176, 0.4);
+        }
+        
+        .footer {
+            margin-top: auto;
+            padding: 30px 0;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .qaq {
+            font-size: 1.3rem;
+            margin-top: 5px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .card-animation {
+            animation: fadeIn 0.6s ease forwards;
+        }
+        
+        .card-animation:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .card-animation:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.2rem;
+            }
+            
+            .software-section {
+                padding: 20px;
+            }
+            
+            .bilibili-btn {
+                padding: 12px 30px;
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .software-name {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-section">
+            <div class="logo">
+                <img src="https://efch.github.io/my.ico" alt="EFCH Logo">
+            </div>
+            <h1 class="title">EFCH</h1>
+            <p class="subtitle">Create more possible!</p>
+            <p class="subtitle">EFCHの个人主页</p>
+            <button class="bilibili-btn" onclick="window.open('https://space.bilibili.com/3493280197118552', '_blank')">
+                <i class="fab fa-bilibili"></i> 哔哩哔哩
+            </button>
+        </div>
+        
+        <div class="software-section">
+            <h2 class="section-title">我的软件</h2>
+            
+            <div class="software-card card-animation">
+                <h3 class="software-name">
+                    <i class="fas fa-shield-alt"></i> EFCHAntiVirus
+                    <span class="software-status stopped">已停止支持</span>
+                </h3>
+                <p>强大的安全防护工具，保护您的系统免受威胁</p>
+                <button class="software-btn disabled">已停止支持</button>
+            </div>
+            
+            <div class="software-card card-animation">
+                <h3 class="software-name">
+                    <i class="fas fa-tools"></i> EFCHSword
+                </h3>
+                <p>多功能系统优化与维护工具</p>
+                <button class="software-btn enabled" onclick="window.open('https://efch.github.io/efchsword/index.html', '_blank')">访问官网</button>
+            </div>
+            
+            <div class="software-card card-animation">
+                <h3 class="software-name">
+                    <i class="fas fa-box-open"></i> 更多软件
+                    <span class="software-status coming-soon">开发中</span>
+                </h3>
+                <p>精彩内容正在开发中，敬请期待</p>
+                <p class="qaq">以后会有更多的QwQ</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>我是有底线的QwQ</p>
+        </div>
+    </div>
+    
+    <script>
+        // 添加简单的动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card-animation');
+            
+            // 背景动画增强
+            const body = document.querySelector('body');
+            setInterval(() => {
+                // 添加轻微的颜色变化效果
+                const hue = Math.floor(Math.random() * 10) - 5;
+                body.style.filter = `hue-rotate(${hue}deg)`;
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
