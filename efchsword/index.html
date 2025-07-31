@@ -17,14 +17,13 @@
             overflow-x: hidden;
             color: #fff;
             min-height: 100vh;
-            background: linear-gradient(45deg, #ff0000, #ff8000, #ffff00, #00ff00, #00ffff, #0000ff, #8000ff);
+            background: linear-gradient(135deg, #0061ff, #0072ff, #00c6ff, #008cff);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
             position: relative;
-            text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
         }
 
-        /* 动态渐变背景动画 */
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -33,19 +32,19 @@
 
         /* 毛玻璃效果容器 */
         .glass-container {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(0, 20, 40, 0.25);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.18);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
             padding: 40px;
             margin: 40px auto;
             max-width: 1200px;
             width: 90%;
         }
 
-        /* 标题样式 - 添加文字描边 */
+        /* 标题样式 - 重新设计 */
         header {
             text-align: center;
             margin-bottom: 40px;
@@ -53,32 +52,49 @@
         }
 
         .logo {
-            font-size: 4.5rem;
+            font-size: 4.2rem;
             font-weight: 800;
             margin-bottom: 20px;
-            background: linear-gradient(to right, #ff7b00, #ffd000, #00c3ff, #ff00c8);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 8px rgba(0, 0, 0, 0.8), 
-                         0 0 12px rgba(0, 0, 0, 0.6),
-                         0 0 20px rgba(0, 0, 0, 0.4);
+            color: #ffffff;
+            text-shadow: 
+                0 0 10px rgba(0, 195, 255, 0.7),
+                0 0 20px rgba(0, 150, 255, 0.5),
+                0 0 30px rgba(0, 100, 255, 0.3),
+                0 4px 8px rgba(0, 0, 0, 0.6);
             letter-spacing: 2px;
             position: relative;
+            display: inline-block;
+            padding: 0 20px;
+            font-family: 'Arial Black', 'Segoe UI', sans-serif;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(to right, transparent, #00ffff, transparent);
+            border-radius: 3px;
+            opacity: 0.7;
         }
 
         .tagline {
             font-size: 1.4rem;
-            margin-bottom: 40px;
-            color: rgba(255, 255, 255, 0.9);
+            margin: 30px auto 40px;
+            color: rgba(255, 255, 255, 0.95);
             max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-            text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+            line-height: 1.8;
+            background: rgba(0, 40, 80, 0.3);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #00ccff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
         }
 
-        /* 按钮样式 - 加强描边 */
+        /* 按钮样式 */
         .btn-container {
             display: flex;
             justify-content: center;
@@ -88,38 +104,54 @@
         }
 
         .btn {
-            padding: 16px 40px;
+            padding: 18px 45px;
             border-radius: 50px;
             font-size: 1.2rem;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 10px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            gap: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
             border: none;
             cursor: pointer;
             transform: translateY(0);
             text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
             position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: 0.5s;
         }
 
         .btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn-primary {
-            background: linear-gradient(45deg, #ff6b00, #ff9d00);
+            background: linear-gradient(45deg, #00a8ff, #0062ff);
             color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(0, 200, 255, 0.5);
         }
 
         .btn-secondary {
-            background: linear-gradient(45deg, #0072ff, #00c6ff);
+            background: linear-gradient(45deg, #009688, #004d40);
             color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(0, 230, 200, 0.5);
         }
 
         /* 特性对比部分 */
@@ -133,7 +165,8 @@
             margin-bottom: 40px;
             position: relative;
             padding-bottom: 15px;
-            text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+            text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
+            color: #ffffff;
         }
 
         .section-title::after {
@@ -142,33 +175,34 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(to right, #ff7b00, #ffd000, #00c3ff);
-            border-radius: 2px;
-            box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+            width: 150px;
+            height: 5px;
+            background: linear-gradient(to right, #00c3ff, #00ffcc);
+            border-radius: 3px;
+            box-shadow: 0 0 15px rgba(0, 195, 255, 0.6);
         }
 
-        /* 表格样式 - 添加描边 */
+        /* 表格样式 */
         .comparison-table {
             width: 100%;
             border-collapse: collapse;
             margin: 0 auto;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            background: rgba(0, 30, 60, 0.4);
+            border: 1px solid rgba(0, 200, 255, 0.3);
         }
 
         .comparison-table th, 
         .comparison-table td {
-            padding: 16px 20px;
+            padding: 18px 25px;
             text-align: center;
-            text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
-            position: relative;
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.9);
         }
 
         .comparison-table thead {
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 80, 120, 0.5);
             font-size: 1.2rem;
         }
 
@@ -176,37 +210,47 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+            font-size: 1.3rem;
+            padding: 20px;
+            color: #00ffff;
+            text-shadow: 0 0 8px rgba(0, 150, 255, 0.8);
         }
 
-        .comparison-table tbody tr:nth-child(even) {
-            background: rgba(255, 255, 255, 0.06);
+        .comparison-table tbody tr {
+            border-bottom: 1px solid rgba(0, 200, 255, 0.2);
         }
 
-        .comparison-table tbody tr:nth-child(odd) {
-            background: rgba(0, 0, 0, 0.06);
+        .comparison-table tbody tr:last-child {
+            border-bottom: none;
         }
 
         .feature-name {
             text-align: left;
             font-weight: 700;
-            color: rgba(255, 255, 255, 0.95);
+            color: #ffffff;
+            font-size: 1.1rem;
+            padding-left: 30px;
+            background: rgba(0, 60, 100, 0.25);
         }
 
         .value {
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 1.1rem;
         }
 
-        。both {
-            color: #4cff50;
+        .both {
+            color: #00ffaa;
+            text-shadow: 0 0 8px rgba(0, 255, 170, 0.6);
         }
 
-        。efch {
-            color: #ffc107;
+        .efch {
+            color: #ffcc00;
+            text-shadow: 0 0 8px rgba(255, 204, 0, 0.6);
         }
 
         .openefch {
-            color: #29b6f6;
+            color: #00ccff;
+            text-shadow: 0 0 8px rgba(0, 204, 255, 0.6);
         }
 
         /* 功能介绍部分 */
@@ -222,12 +266,12 @@
         }
 
         .feature-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(0, 40, 80, 0.3);
             border-radius: 12px;
-            padding: 25px;
+            padding: 30px 25px;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 200, 255, 0.3);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
         }
@@ -238,55 +282,69 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(to right, #ff7b00, #ffd000, #00c3ff);
+            height: 5px;
+            background: linear-gradient(to right, #00c3ff, #00ffcc);
+            box-shadow: 0 0 15px rgba(0, 195, 255, 0.5);
         }
 
-        。feature-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        .feature-card:hover {
+            transform: translateY(-8px);
+            background: rgba(0, 60, 120, 0.35);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
         }
 
         .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #ff9d00;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: #00ffff;
             display: flex;
             align-items: center;
-            gap: 10px;
-            text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+            gap: 15px;
+            text-shadow: 0 0 8px rgba(0, 150, 255, 0.7);
         }
 
         .feature-card ul {
             list-style-type: none;
         }
 
-        。feature-card li {
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        .feature-card li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 200, 255, 0.15);
             display: flex;
             align-items: flex-start;
-            text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
+            font-size: 1.05rem;
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.9);
         }
 
         .feature-card li::before {
             content: '✓';
-            color: #4caf50;
+            color: #00ffaa;
             font-weight: bold;
-            margin-right: 10px;
-            text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+            margin-right: 12px;
+            font-size: 1.2rem;
+            text-shadow: 0 0 8px rgba(0, 255, 170, 0.6);
         }
 
         /* 警告提示 */
         .warning {
             background: rgba(255, 50, 50, 0.2);
             border-left: 4px solid rgba(255, 0, 0, 0.7);
-            padding: 20px;
-            border-radius: 4px;
+            padding: 25px;
+            border-radius: 8px;
             margin-top: 40px;
             font-weight: 600;
-            text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+            font-size: 1.1rem;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 页脚 */
+        footer {
+            text-align: center;
+            padding: 30px 0 15px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
         }
 
         /* 响应式设计 */
@@ -297,20 +355,27 @@
             }
             
             .logo {
-                font-size: 3rem;
+                font-size: 3.2rem;
             }
             
             .tagline {
                 font-size: 1.1rem;
+                padding: 15px;
             }
             
             .btn {
-                padding: 14px 30px;
+                padding: 16px 35px;
                 font-size: 1rem;
             }
             
             .section-title {
                 font-size: 2rem;
+            }
+            
+            .comparison-table th, 
+            .comparison-table td {
+                padding: 14px 16px;
+                font-size: 1rem;
             }
         }
 
@@ -320,12 +385,13 @@
             }
             
             .logo {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
             
             .btn-container {
                 flex-direction: column;
                 align-items: center;
+                gap: 20px;
             }
             
             .btn {
@@ -335,8 +401,12 @@
             
             .comparison-table th, 
             .comparison-table td {
-                padding: 12px 8px;
+                padding: 12px 10px;
                 font-size: 0.9rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -346,7 +416,7 @@
         <header>
             <h1 class="logo">EFCHSword</h1>
             <p class="tagline">
-                EFCHSword是一款适用于Windows平台的驱动级计算机管理软件，具有进程管理、窗口管理、文件管理、自启动管理、服务管理、进程行为监视、注册表管理等一系列强大功能。
+                EFCHSword 是一款强大的Windows平台驱动级计算机管理工具，提供进程管理、窗口管理、文件管理、自启动管理、服务管理、进程行为监视、注册表管理等专业功能。
             </p>
         </header>
         
@@ -355,7 +425,7 @@
                 <i class="fab fa-github"></i> EFCHSword 项目
             </a>
             <a href="https://github.com/RSEFCH123/OpenEFCHSword" target="_blank" class="btn btn-secondary">
-                <i class="fas fa-external-link-alt"></i> OpenEFCHSword 项目
+                <i class="fas fa-github"></i> OpenEFCHSword 项目
             </a>
         </div>
         
@@ -400,79 +470,94 @@
                         <td class="value efch">EFCHKernelDriver</td>
                         <td class="value openefch">OpenEFCHKernelDriver</td>
                     </tr>
+                    <tr>
+                        <td class="feature-name">文件内容管理</td>
+                        <td class="value efch">IRP</td>
+                        <td class="value openefch">R3</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
         
         <div class="features-section">
-            <h2 class="section-title">功能介绍</h2>
+            <h2 class="section-title">核心功能</h2>
             <div class="features-grid">
                 <div class="feature-card">
-                    <h3><i class="fas fa-microchip"></i> 进程方面</h3>
+                    <h3><i class="fas fa-microchip"></i> 进程管理</h3>
                     <ul>
-                        <li>View进程</li>
-                        <li>终止进程</li>
-                        <li>暂停/恢复进程</li>
-                        <li>进程优先级管理</li>
+                        <li>实时查看所有进程</li>
+                        <li>终止任意进程</li>
+                        <li>暂停/恢复进程执行</li>
+                        <li>进程优先级调整</li>
                         <li>DLL加载管理</li>
-                        <li>进程的窗口View与管理</li>
-                        <li>进程的线程View与管理</li>
+                        <li>进程窗口管理</li>
+                        <li>进程线程管理</li>
                     </ul>
                 </div>
                 
                 <div class="feature-card">
                     <h3><i class="fas fa-window-maximize"></i> 窗口管理</h3>
                     <ul>
-                        <li>View窗口</li>
-                        <li>关闭窗口</li>
+                        <li>查看所有活动窗口</li>
+                        <li>强制关闭窗口</li>
+                        <li>窗口置顶/取消置顶</li>
+                        <li>窗口隐藏/显示</li>
                     </ul>
                 </div>
                 
                 <div class="feature-card">
                     <h3><i class="fas fa-folder-open"></i> 文件管理</h3>
                     <ul>
-                        <li>View文件</li>
-                        <li>文件提取</li>
-                        <li>文件保护</li>
-                        <li>删/强删/驱动删文件</li>
+                        <li>高级文件浏览器</li>
+                        <li>文件提取与保护</li>
+                        <li>强制删除文件</li>
                         <li>文件内容管理</li>
-                        <li>使用Explorer右键菜单</li>
-                        <li>文件占用管理</li>
-                        <li>文件属性</li>
+                        <li>集成Explorer右键菜单</li>
+                        <li>文件占用分析</li>
+                        <li>文件属性管理</li>
                     </ul>
                 </div>
                 
                 <div class="feature-card">
-                    <h3><i class="fas fa-play-circle"></i> 启动项管理</h3>
+                    <h3><i class="fas fa-play-circle"></i> 系统管理</h3>
                     <ul>
-                        <li>开/关驱动项</li>
-                        <li>服务管理</li>
+                        <li>启动项管理</li>
+                        <li>系统服务管理</li>
+                        <li>NT驱动安装与调试</li>
+                        <li>PPL设置</li>
                     </ul>
                 </div>
                 
                 <div class="feature-card">
-                    <h3><i class="fas fa-shield-alt"></i> 进程行为监视</h3>
+                    <h3><i class="fas fa-shield-alt"></i> 安全监控</h3>
                     <ul>
-                        <li>可监视进程的File/Registry/Network行为</li>
+                        <li>实时进程行为监控</li>
+                        <li>文件操作追踪</li>
+                        <li>注册表变更监控</li>
+                        <li>网络活动监视</li>
                     </ul>
                 </div>
                 
                 <div class="feature-card">
-                    <h3><i class="fas fa-tools"></i> 工具与注册表管理</h3>
+                    <h3><i class="fas fa-tools"></i> 工具与注册表</h3>
                     <ul>
-                        <li>多种实用工具</li>
-                        <li>注册表View</li>
-                        <li>删除注册项</li>
-                        <li>新建注册项</li>
-                        <li>注册项管理</li>
+                        <li>注册表编辑器</li>
+                        <li>注册表项管理</li>
+                        <li>注册表项删除</li>
+                        <li>注册表项新建</li>
                     </ul>
                 </div>
             </div>
             
             <div class="warning">
-                <i class="fas fa-exclamation-triangle"></i> 注意! 使用本软件造成的任何问题，开发者不承担任何责任。
+                <i class="fas fa-exclamation-triangle"></i> 重要提示：EFCHSword使用驱动级操作，请谨慎使用。开发者对因使用本软件导致的任何问题不承担责任。
             </div>
         </div>
+        
+        <footer>
+            <p>EFCHSword &copy; 2024 | 版权所有</p>
+            <p>Windows 10+ 驱动模式 | Windows 7+ 无驱动模式</p>
+        </footer>
     </div>
     
     <script>
@@ -491,20 +576,24 @@
             });
         });
         
-        // 动态背景增强
+        // 动态背景增强 - 平滑渐变
         document.body.addEventListener('mousemove', function(e) {
             const x = e.clientX / window.innerWidth;
             const y = e.clientY / window.innerHeight;
             document.body.style.backgroundPosition = `${x * 100}% ${y * 100}%`;
         });
         
-        // 额外的文字可读性增强
-        document.addEventListener('DOMContentLoaded', function() {
-            const elements = document.querySelectorAll('h1, h2, h3, p, li, td, th, .btn, .warning');
-            elements.forEach(el => {
-                el.style.textShadow = '0 0 3px rgba(0, 0, 0, 0.9)';
-            });
-        });
+        // 标题动画效果
+        const logo = document.querySelector('.logo');
+        setInterval(() => {
+            const hue = Math.floor(Math.random() * 40) + 200; // 200-240 蓝色范围
+            const shadowColor = `hsla(${hue}, 100%, 70%, 0.7)`;
+            logo.style.textShadow = 
+                `0 0 10px ${shadowColor},
+                 0 0 20px rgba(0, 150, 255, 0.5),
+                 0 0 30px rgba(0, 100, 255, 0.3),
+                 0 4px 8px rgba(0, 0, 0, 0.6)`;
+        }, 3000);
     </script>
 </body>
 </html>
